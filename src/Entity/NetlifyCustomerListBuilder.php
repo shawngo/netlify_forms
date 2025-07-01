@@ -2,9 +2,7 @@
 
 /**
  * @file
- * Contains \Drupal\netlify_forms\Entity\NetlifyCustomerListBuilder.
- *
- * LOCATION: modules/custom/netlify_forms/src/Entity/NetlifyCustomerListBuilder.php
+ * List builder for Netlify Customer entities in the admin interface.
  */
 
 namespace Drupal\netlify_forms\Entity;

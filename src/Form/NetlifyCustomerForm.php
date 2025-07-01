@@ -2,9 +2,7 @@
 
 /**
  * @file
- * Contains \Drupal\netlify_forms\Form\NetlifyCustomerForm.
- *
- * LOCATION: modules/custom/netlify_forms/src/Form/NetlifyCustomerForm.php
+ * Form for creating and editing Netlify Customer entities.
  */
 
 namespace Drupal\netlify_forms\Form;

@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains \Drupal\netlify_forms\Plugin\Block\FormsOverviewBlock.
+ * Block plugin for displaying customer form submissions overview.
  */
 
 namespace Drupal\netlify_forms\Plugin\Block;

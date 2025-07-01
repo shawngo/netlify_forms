@@ -2,9 +2,7 @@
 
 /**
  * @file
- * Contains \Drupal\netlify_forms\Access\NetlifyCustomerAccessControlHandler.
- *
- * LOCATION: modules/custom/netlify_forms/src/Access/NetlifyCustomerAccessControlHandler.php
+ * Access control handler for Netlify Customer entity operations.
  */
 
 namespace Drupal\netlify_forms\Access;

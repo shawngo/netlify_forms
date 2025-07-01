@@ -2,9 +2,7 @@
 
 /**
  * @file
- * Contains \Drupal\netlify_forms\Entity\NetlifyCustomerInterface.
- *
- * LOCATION: modules/custom/netlify_forms/src/Entity/NetlifyCustomerInterface.php
+ * Interface definition for Netlify Customer entity methods.
  */
 
 namespace Drupal\netlify_forms\Entity;

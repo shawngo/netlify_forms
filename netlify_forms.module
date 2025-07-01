@@ -3,8 +3,6 @@
 /**
  * @file
  * Main module file for Netlify Forms.
- *
- * LOCATION: modules/custom/netlify_forms/netlify_forms.module
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;

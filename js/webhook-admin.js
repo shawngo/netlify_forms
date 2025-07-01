@@ -1,8 +1,6 @@
 /**
  * @file
  * Webhook administration functionality.
- *
- * LOCATION: modules/custom/netlify_forms/js/webhook-admin.js
  */
 
 (function ($, Drupal, once) {

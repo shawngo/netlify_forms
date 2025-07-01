@@ -2,9 +2,7 @@
 
 /**
  * @file
- * Contains \Drupal\netlify_forms\Controller\NetlifyFormsController.
- *
- * LOCATION: modules/custom/netlify_forms/src/Controller/NetlifyFormsController.php
+ * Controller for customer-facing form submission management and display.
  */
 
 namespace Drupal\netlify_forms\Controller;
@@ -88,10 +86,6 @@ class NetlifyFormsController extends ControllerBase {
     $build['header']['title'] = [
       '#markup' => '<h1 class="page-title">' . $this->t('Active forms') . '</h1>',
     ];
-
-    // $build['header']['customer_name'] = [
-    //   '#markup' => '<p class="customer-subtitle">' . $this->t('Customer: @name', ['@name' => $customer->getName()]) . '</p>',
-    // ];
 
     // Forms grid
     $build['forms_grid'] = [
@@ -261,10 +255,6 @@ class NetlifyFormsController extends ControllerBase {
     ];
 
     // Page header
-    // $build['header'] = [
-    //   '#markup' => '<h1>' . $this->t('Submissions for @form', ['@form' => $form_info['name']]) . '</h1>',
-    // ];
-
     if (!empty($submissions)) {
       $rows = [];
       foreach ($submissions as $submission) {

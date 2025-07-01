@@ -1,8 +1,6 @@
 /**
  * @file
  * Styling for Netlify Forms submissions pages
- *
- * LOCATION: modules/custom/netlify_forms/css/submissions.css
  */
 
 /* Main container */
@@ -10,7 +8,6 @@
 .form-submissions-page {
   margin: 0 auto;
   padding: 0;
-  /* min-height: 100vh; */
 }
 
 /* Header section */
@@ -82,17 +79,17 @@
 }
 
 .form-card-content {
-    align-items: center;
-    align-self: center;
-    display: flex ;
-    flex-wrap: wrap;
+  align-items: center;
+  align-self: center;
+  display: flex;
+  flex-wrap: wrap;
   pointer-events: none;
 }
 
 .form-card-content--container {
   flex: 1 0 8rem;
-    min-width: 0;
-    padding: 10px 10px 0;
+  min-width: 0;
+  padding: 10px 10px 0;
 }
 
 .form-card .form-name {
@@ -110,21 +107,22 @@
 }
 
 .form-card .submission-count {
-    flex-basis: auto;
-    flex-grow: 0;
-    padding-right: 10px;
-    text-align: right;
-    white-space: nowrap;
+  flex-basis: auto;
+  flex-grow: 0;
+  padding-right: 10px;
+  text-align: right;
+  white-space: nowrap;
 }
 
 .form-card .arrow {
-    color: #9ca3af;
-    font-size: 1.5rem;
-    font-weight: 300;
-    margin: 0 20px 0 30px;
+  color: #9ca3af;
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin: 0 20px 0 30px;
 }
+
 .form-card:hover .arrow {
-    color: #ffffff;
+  color: #ffffff;
 }
 
 .view-all-link {
@@ -132,12 +130,10 @@
   display: inline-block;
   text-decoration: none;
 }
+
 .view-all-link:hover {
   text-decoration: underline;
 }
-
-/* Form submissions page */
-
 
 .back-link {
   display: inline-block;
@@ -171,10 +167,10 @@
   text-transform: uppercase;
   letter-spacing: 0.025em;
 }
+
 .submissions-table th:first-child,
-.submissions-table td:first-child
- {
-    padding-left: 1.7rem;
+.submissions-table td:first-child {
+  padding-left: 1.7rem;
 }
 
 .submissions-table td {
@@ -204,13 +200,13 @@
 
 /* Empty state */
 .empty-state {
-    text-align: center;
-    padding: 2rem 2rem;
-    color: #f9fafb;
-    font-size: 1.125rem;
-    background: #142537;
-    border-radius: 8px;
-    border: 1px solid #1f354c;
+  text-align: center;
+  padding: 2rem 2rem;
+  color: #f9fafb;
+  font-size: 1.125rem;
+  background: #142537;
+  border-radius: 8px;
+  border: 1px solid #1f354c;
 }
 
 /* Webhook configuration section */
@@ -283,79 +279,7 @@
   transform: translateX(0);
 }
 
-/* Forms Overview Block */
-/* Forms Overview Block */
-/*
-.forms-overview-block {
-  background: #1a1a1a;
-  padding: 1.5rem;
-  border-radius: 8px;
-  border: 1px solid #4d565f;
-}
-
-.forms-overview-block .block-title {
-  color: #ffffff;
-  font-size: 1.25rem;
-  margin: 0 0 1rem 0;
-  font-weight: 600;
-}
-
-.forms-grid--block {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.form-card--block {
-  background: #2a2a2a;
-  border: 1px solid #3a3a3a;
-  border-radius: 6px;
-  padding: 1rem;
-  transition: all 0.2s ease;
-}
-
-.form-card--block:hover {
-  border-color: #4a5568;
-  background: #2d2d2d;
-}
-
-.form-card--block .form-name {
-  color: #ffffff;
-  font-size: 1rem;
-  margin: 0 0 0.5rem 0;
-  font-weight: 500;
-}
-
-.form-card--block .form-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.875rem;
-}
-
-.form-card--block .last-submission {
-  color: #9ca3af;
-}
-
-.form-card--block .submission-count {
-  color: #60a5fa;
-  font-weight: 500;
-}
-
-.forms-overview-block .view-all-link {
-  display: inline-block;
-  margin-top: 1rem;
-  color: #60a5fa;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.875rem;
-}
-
-.forms-overview-block .view-all-link:hover {
-  color: #3b82f6;
-}
-*/
-/* Responsive design */
+/* Mobile design tweaks */
 @media (max-width: 768px) {
   .submissions-header .page-title {
     font-size: 2rem;

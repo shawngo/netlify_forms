@@ -2,9 +2,7 @@
 
 /**
  * @file
- * Contains \Drupal\netlify_forms\Form\NetlifyFormsConfigForm.
- *
- * LOCATION: modules/custom/netlify_forms/src/Form/NetlifyFormsConfigForm.php
+ * Configuration form for Netlify Forms module settings.
  */
 
 namespace Drupal\netlify_forms\Form;

@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains \Drupal\netlify_forms\Controller\WebhookController.
+ * Handles incoming Netlify form submission webhooks and data storage.
  */
 
 namespace Drupal\netlify_forms\Controller;

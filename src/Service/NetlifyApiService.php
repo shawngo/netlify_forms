@@ -2,9 +2,7 @@
 
 /**
  * @file
- * Contains \Drupal\netlify_forms\Service\NetlifyApiService.
- *
- * LOCATION: modules/custom/netlify_forms/src/Service/NetlifyApiService.php
+ * Service for interacting with the Netlify Forms API.
  */
 
 namespace Drupal\netlify_forms\Service;

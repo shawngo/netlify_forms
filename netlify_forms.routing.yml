@@ -6,7 +6,6 @@ netlify_forms.admin_settings:
   requirements:
     _permission: 'administer netlify forms'
 
-# Customer entity routes
 entity.netlify_customer.collection:
   path: '/admin/content/netlify-customers'
   defaults:
@@ -87,7 +86,6 @@ netlify_forms.form_submissions:
   requirements:
     _permission: 'view own netlify submissions'
 
-# Webhook endpoint
 netlify_forms.webhook:
   path: '/webhooks/netlify/{site_id}'
   defaults:
@@ -98,7 +96,6 @@ netlify_forms.webhook:
     _access: 'TRUE'
   options:
     _admin_route: FALSE
-
 
 netlify_forms.submission_detail:
   path: '/my-submissions/form/{form_id}/{submission_id}'

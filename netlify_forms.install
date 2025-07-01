@@ -3,8 +3,6 @@
 /**
  * @file
  * Install, update and uninstall functions for the Netlify Forms module.
- *
- * LOCATION: modules/custom/netlify_forms/netlify_forms.install
  */
 
 /**

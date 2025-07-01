@@ -2,9 +2,7 @@
 
 /**
  * @file
- * Contains \Drupal\netlify_forms\Entity\NetlifyCustomer.
- *
- * LOCATION: modules/custom/netlify_forms/src/Entity/NetlifyCustomer.php
+ * Defines the Netlify Customer entity for managing customer-site relationships.
  */
 
 namespace Drupal\netlify_forms\Entity;
