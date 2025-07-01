@@ -1,0 +1,7 @@
+# Add Customer button on the customer list page
+netlify_forms.customer.add:
+  title: 'Add Customer'
+  route_name: entity.netlify_customer.add_form
+  appears_on:
+    - entity.netlify_customer.collection
+  class: Drupal\Core\Menu\LocalActionDefault

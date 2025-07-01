@@ -1,0 +1,17 @@
+administer netlify forms:
+  title: 'Administer Netlify Forms'
+  description: 'Configure Netlify Forms settings'
+  restrict access: true
+
+manage netlify customers:
+  title: 'Manage Netlify Customers'
+  description: 'Create and manage customer accounts and site associations'
+  restrict access: true
+
+view own netlify submissions:
+  title: 'View own Netlify form submissions'
+  description: 'View form submissions for own website'
+
+edit own netlify customer:
+  title: 'Edit own customer profile'
+  description: 'Edit own Netlify customer information'

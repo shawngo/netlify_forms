@@ -1,0 +1,4 @@
+services:
+  netlify_forms.api:
+    class: Drupal\netlify_forms\Service\NetlifyApiService
+    arguments: ['@http_client_factory', '@config.factory', '@logger.factory']

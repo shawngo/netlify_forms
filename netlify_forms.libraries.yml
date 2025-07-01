@@ -1,0 +1,15 @@
+submissions_styling:
+  css:
+    theme:
+      css/submissions.css: {}
+  dependencies:
+    - core/drupal
+
+webhook_admin:
+  js:
+    js/webhook-admin.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/once
+    - netlify_forms/submissions_styling

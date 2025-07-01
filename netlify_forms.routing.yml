@@ -1,0 +1,125 @@
+netlify_forms.admin_settings:
+  path: '/admin/config/services/netlify-forms'
+  defaults:
+    _form: '\Drupal\netlify_forms\Form\NetlifyFormsConfigForm'
+    _title: 'Netlify Forms Settings'
+  requirements:
+    _permission: 'administer netlify forms'
+
+# Customer entity routes
+entity.netlify_customer.collection:
+  path: '/admin/content/netlify-customers'
+  defaults:
+    _entity_list: 'netlify_customer'
+    _title: 'Netlify Customers'
+  requirements:
+    _permission: 'manage netlify customers'
+
+entity.netlify_customer.add_form:
+  path: '/admin/content/netlify-customers/add'
+  defaults:
+    _entity_form: 'netlify_customer.add'
+    _title: 'Add Netlify Customer'
+  requirements:
+    _permission: 'manage netlify customers'
+
+entity.netlify_customer.canonical:
+  path: '/admin/content/netlify-customers/{netlify_customer}'
+  defaults:
+    _entity_view: 'netlify_customer'
+    _title: 'Netlify Customer'
+  requirements:
+    _permission: 'manage netlify customers'
+
+entity.netlify_customer.edit_form:
+  path: '/admin/content/netlify-customers/{netlify_customer}/edit'
+  defaults:
+    _entity_form: 'netlify_customer.edit'
+    _title: 'Edit Netlify Customer'
+  requirements:
+    _permission: 'manage netlify customers'
+
+entity.netlify_customer.delete_form:
+  path: '/admin/content/netlify-customers/{netlify_customer}/delete'
+  defaults:
+    _entity_form: 'netlify_customer.delete'
+    _title: 'Delete Netlify Customer'
+  requirements:
+    _permission: 'manage netlify customers'
+
+netlify_forms.customer.forms:
+  path: '/admin/content/netlify-customers/{netlify_customer}/forms'
+  defaults:
+    _controller: '\Drupal\netlify_forms\Controller\NetlifyFormsController::customerForms'
+    _title: 'Manage Forms'
+  requirements:
+    _permission: 'manage netlify customers'
+
+netlify_forms.user_submissions:
+  path: '/my-submissions'
+  defaults:
+    _controller: '\Drupal\netlify_forms\Controller\NetlifyFormsController::userSubmissions'
+    _title: 'My Form Submissions'
+  requirements:
+    _permission: 'view own netlify submissions'
+
+netlify_forms.export_csv:
+  path: '/my-submissions/form/{form_id}/export'
+  defaults:
+    _controller: '\Drupal\netlify_forms\Controller\NetlifyFormsController::exportSubmissions'
+    _title: 'Export CSV'
+  requirements:
+    _permission: 'view own netlify submissions'
+
+netlify_forms.download_csv:
+  path: '/download-csv/{key}'
+  defaults:
+    _controller: '\Drupal\netlify_forms\Controller\NetlifyFormsController::downloadCsv'
+    _title: 'Download CSV'
+  requirements:
+    _permission: 'view own netlify submissions'
+
+netlify_forms.form_submissions:
+  path: '/my-submissions/form/{form_id}'
+  defaults:
+    _controller: '\Drupal\netlify_forms\Controller\NetlifyFormsController::formSubmissions'
+    _title: 'Form Submissions'
+  requirements:
+    _permission: 'view own netlify submissions'
+
+# Webhook endpoint
+netlify_forms.webhook:
+  path: '/webhooks/netlify/{site_id}'
+  defaults:
+    _controller: '\Drupal\netlify_forms\Controller\WebhookController::handleSubmission'
+    _title: 'Netlify Webhook'
+  methods: [POST]
+  requirements:
+    _access: 'TRUE'
+  options:
+    _admin_route: FALSE
+
+
+netlify_forms.submission_detail:
+  path: '/my-submissions/form/{form_id}/{submission_id}'
+  defaults:
+    _controller: '\Drupal\netlify_forms\Controller\NetlifyFormsController::submissionDetail'
+    _title: 'Submission Details'
+  requirements:
+    _permission: 'view own netlify submissions'
+
+netlify_forms.my_customer_profile:
+  path: '/my-customer-profile'
+  defaults:
+    _controller: '\Drupal\netlify_forms\Controller\NetlifyFormsController::myCustomerProfile'
+    _title: 'My Customer Profile'
+  requirements:
+    _permission: 'edit own netlify customer'
+
+netlify_forms.sync_submissions:
+  path: '/admin/netlify-forms/sync/{customer_id}'
+  defaults:
+    _controller: '\Drupal\netlify_forms\Controller\NetlifyFormsController::syncSubmissions'
+    _title: 'Sync Submissions'
+  requirements:
+    _permission: 'manage netlify customers'

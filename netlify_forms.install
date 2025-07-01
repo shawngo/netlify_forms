@@ -1,0 +1,192 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the Netlify Forms module.
+ *
+ * LOCATION: modules/custom/netlify_forms/netlify_forms.install
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function netlify_forms_schema() {
+  $schema['netlify_customer'] = [
+    'description' => 'Stores Netlify customer information.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Primary Key: Unique customer ID.',
+      ],
+      'uuid' => [
+        'type' => 'varchar_ascii',
+        'length' => 128,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Unique Key: Universally unique identifier.',
+      ],
+      'name' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'The customer name.',
+      ],
+      'user_id' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'The user ID associated with this customer.',
+      ],
+      'site_id' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'The Netlify site ID.',
+      ],
+      'selected_forms' => [
+        'type' => 'text',
+        'size' => 'big',
+        'description' => 'Serialized array of selected form IDs.',
+      ],
+      'created' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'The time the customer was created.',
+      ],
+      'changed' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'The time the customer was last edited.',
+      ],
+    ],
+    'primary key' => ['id'],
+    'unique keys' => [
+      'uuid' => ['uuid'],
+      'user_id' => ['user_id'],
+    ],
+    'indexes' => [
+      'site_id' => ['site_id'],
+      'created' => ['created'],
+      'changed' => ['changed'],
+    ],
+  ];
+
+  $schema['netlify_submissions'] = [
+    'description' => 'Stores Netlify form submissions.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Primary Key: Unique submission ID.',
+      ],
+      'customer_id' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'The customer ID this submission belongs to.',
+      ],
+      'site_id' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'The Netlify site ID.',
+      ],
+      'form_id' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'The Netlify form ID.',
+      ],
+      'form_name' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => FALSE,
+        'default' => '',
+        'description' => 'The form name from Netlify.',
+      ],
+      'netlify_submission_id' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'The unique submission ID from Netlify.',
+      ],
+      'submission_data' => [
+        'type' => 'text',
+        'size' => 'big',
+        'description' => 'JSON data of the form submission.',
+      ],
+      'email' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => FALSE,
+        'default' => '',
+        'description' => 'Email address from the submission.',
+      ],
+      'submission_name' => [
+        'type' => 'varchar',
+        'length' => 500,
+        'not null' => FALSE,
+        'default' => '',
+        'description' => 'Auto-generated submission name/title.',
+      ],
+      'created_at' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'The time the submission was created in Netlify.',
+      ],
+      'received_at' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'The time we received the webhook.',
+      ],
+    ],
+    'primary key' => ['id'],
+    'unique keys' => [
+      'netlify_submission_id' => ['netlify_submission_id'],
+    ],
+    'indexes' => [
+      'customer_id' => ['customer_id'],
+      'site_id' => ['site_id'],
+      'form_id' => ['form_id'],
+      'email' => ['email'],
+      'created_at' => ['created_at'],
+      'received_at' => ['received_at'],
+    ],
+  ];
+
+  return $schema;
+}
+
+
+
+/**
+ * Implements hook_uninstall().
+ */
+function netlify_forms_uninstall() {
+  // Clean up configuration
+  \Drupal::configFactory()->getEditable('netlify_forms.settings')->delete();
+
+  // Clean up user data (if any remaining from old version)
+  \Drupal::service('user.data')->delete('netlify_forms');
+}
+
+/**
+ * Add netlify_submissions table.
+ */
+function netlify_forms_update_8001() {
+  $schema = netlify_forms_schema();
+  $spec = $schema['netlify_submissions'];
+  \Drupal::database()->schema()->createTable('netlify_submissions', $spec);
+}

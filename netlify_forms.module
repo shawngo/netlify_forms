@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file
+ * Main module file for Netlify Forms.
+ *
+ * LOCATION: modules/custom/netlify_forms/netlify_forms.module
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function netlify_forms_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.netlify_forms':
+      return '<p>' . t('This module integrates with Netlify Forms API to display form submissions with customer management.') . '</p>';
+  }
+}

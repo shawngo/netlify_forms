@@ -1,0 +1,9 @@
+name: Netlify Forms
+type: module
+description: 'Integrates with Netlify API to display form submissions with customer management'
+core_version_requirement: ^11
+package: Custom
+dependencies:
+  - drupal:user
+  - drupal:system
+configure: netlify_forms.admin_settings
