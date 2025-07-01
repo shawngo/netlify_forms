@@ -166,7 +166,7 @@ phpunit --configuration phpunit.xml
 - Include Drupal version, PHP version, and detailed steps to reproduce
 - Check existing issues before creating new ones
 
-## 📋 Requirements
+## Requirements
 
 - **Drupal**: 11.0+
 - **PHP**: 8.1+
